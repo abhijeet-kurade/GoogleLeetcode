@@ -6,8 +6,8 @@ import java.util.List;
 public class TextJustification {
     public static void main(String[] args) {
         //
-        String[] words = {"This", "is", "an", "example", "of", "text", "justification", "n", "written", "by", "Abhijeet."};
-        int maxWidth = 16;
+        String[] words = {"This", "is", "an", "example", "of", "text", "justification", "its", "written", "by", "Abhijeet."};
+        int maxWidth = 17;
 
         for(String line : fullJustify(words, maxWidth)){
             System.out.println(line);

@@ -1,9 +1,76 @@
 package Hard;
 
+import java.util.*;
+
 public class MaximumFontToFitTheScreen {
     public static void main(String[] args) {
 
     }
+
+
+// you can also use imports, for example:
+// import java.util.*;
+public class Solution {
+
+    public static void main(String[] args) {
+        // you can write to stdout for debugging purposes, e.g.
+        System.out.println("This is a debug message");
+    }
+
+    // enqueue / add = O(1)
+    // dequeue /poll = O(n)
+
+    public class Queue {
+        Stack<Integer> stack1;
+        Stack<Integer> stack2;
+
+        public Queue() {
+            this.stack1 = new Stack<>();
+            this.stack2 = new Stack<>();
+        }
+
+
+        // O(1)
+        public void enqueue(int val) {
+            this.stack1.add(val);
+        }
+
+        // O(n)
+        public int dequeue() {
+            if (this.stack1.isEmpty() && this.stack2.isEmpty()) {
+                System.out.println("Queue is empty.");
+                return Integer.MIN_VALUE;
+            }
+            if (this.stack2.isEmpty()) {
+                while (!this.stack1.isEmpty()) {
+                    this.stack2.add(this.stack1.pop());
+                }
+            }
+            return this.stack2.pop();
+        }
+
+        public int dequeueUsingRec() {
+            if (this.stack1.isEmpty()) {
+                System.out.println("Queue is empty.");
+                return Integer.MIN_VALUE;
+            }
+
+            int val = getFirstItem(this.stack1);
+            return val;
+        }
+    }
+
+    public int getFirstItem(Stack<Integer> stack) {
+        if (stack.size() == 1) return stack.pop();
+        int temp = stack.pop();
+        int val = getFirstItem(stack);
+        stack.add(temp);
+        return val;
+    }
+
+}
+
+
 
     interface FontInfo {
         // Returns the width of character ch on the screen using font size fontSize.
