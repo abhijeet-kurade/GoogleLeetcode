@@ -1,6 +1,7 @@
 package Hard;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class TextJustification {
@@ -18,6 +19,8 @@ public class TextJustification {
 
 
     }
+
+
     // https://leetcode.com/problems/text-justification/
     public static List<String> fullJustify(String[] words, int maxWidth) {
         ArrayList<String> result = new ArrayList<>();
